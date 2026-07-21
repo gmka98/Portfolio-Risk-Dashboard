@@ -13,6 +13,8 @@ returns = prices.pct_change().dropna()
 # Portfolio daily returns
 port_returns = returns @ weights
 
+day_var = np.percentile(port_returns, 5) # 5th percentile for historical value at risk (VaR)
+
 # Key metrics
 
 annual_ret = port_returns.mean() * 252
